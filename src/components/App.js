@@ -1,12 +1,19 @@
-import Login from '../pages/Login';
-import Signup from '../pages/Signup';
+import { Home, Login, Signup } from '../pages';
+import { Navbar, Footer } from '../components/core';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   return (
     <div className='App'>
-      <Login />
-      <br />
-      <Signup />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 };
